@@ -1,0 +1,54 @@
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Add Contact</h2>
+                <form [formGroup]="form" class="text-center border border-light p-5" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <input formControlName="firstName" type="text" id="firstName" class="form-control input--style-3" [value]="fname" placeholder="First Name">
+                        <div *ngIf="f.firstName.touched && f.firstName.invalid" class="alert alert-danger">
+                            <div *ngIf="f.firstName.errors && f.firstName.errors.required" class="sp">First name is required!</div>
+                            <div *ngIf="f.firstName.errors && f.firstName.errors.pattern" class="sp">Invalid first name ! (only alphabets allowed)</div>
+                            <div *ngIf="f.firstName.errors && f.firstName.errors.minlength" class="sp">First name should be minimum 3 characters!</div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="form-group">
+                        <input formControlName="lastName" type="text" id="lastName" class="form-control input--style-3" placeholder="Last Name" >
+                        <div *ngIf="f.lastName.touched && f.lastName.invalid" class="alert alert-danger">
+                            <div *ngIf="f.lastName.errors && f.lastName.errors.required" class="sp">Last name is required.</div>
+                            <div *ngIf="f.lastName.errors && f.lastName.errors.pattern" class="sp">Invalid last name ! (only alphabets allowed)</div>
+                        </div>
+                    </div>
+                    <br><br>
+                
+                    <div class="form-group">
+                        <input formControlName="phone" type="tel" id="phone" class="form-control input--style-3" placeholder="Phone no."> 
+                        <div *ngIf="f.phone.touched && f.phone.invalid" class="alert alert-danger">
+                            <div *ngIf="f.phone.errors && f.phone.errors.required" class="sp">Phone no. is required.</div>
+                            <div *ngIf="f.phone.errors && f.phone.errors.minlength" class="sp">Phone no. should be of 10 digits.</div> 
+                            <div *ngIf="f.phone.errors && f.phone.errors.maxlength" class="sp">Phone no. should be of 10 digits.</div> 
+                            <div *ngIf="f.phone.errors && f.phone.errors.pattern" class="sp">Invalid phone number ! (only numbers allowed)</div>
+                        </div>
+                    </div>
+                    
+                    
+                    <br><br><br>
+                    <div class="row">    
+                        <div class="col-4">
+                            <button color="info" class="btn" block="true" (click)="navigateToHome()"><i class="fa fa-arrow-left"></i></button>
+                        </div>
+                        <div class="col-6">
+                            <button [disabled]="!form.valid"  color="info" block="true" class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                    
+                    
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
