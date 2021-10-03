@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   sort_by!: string;
 
   constructor(private router : Router,private contactService : ContactsService) {
-    this.sort_by = 'Sort by..';
+    this.sort_by = 'Sort by...';
    }
 
   ngOnInit(): void {
@@ -46,9 +46,11 @@ export class HomeComponent implements OnInit {
   }
 
   removeContact = (i:number) => {
-    console.log(i);
-    this.userContact.splice(i,1);
-    this.contactService.deleteRecord(this.userContact);
+    if(confirm("Do you want to delete this contact?")){
+      console.log(i);
+      this.userContact.splice(i,1);
+      this.contactService.deleteRecord(this.userContact);
+    }
   }
 
 }

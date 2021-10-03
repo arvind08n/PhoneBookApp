@@ -50,7 +50,7 @@ export class NewcontactComponent implements OnInit {
     console.log(this.updateContact);
     if(this.updateContact == 'true'){
     console.log("hello");
-    this.contactDetail = this.contactService.currentUser(this._routeParams.snapshot.params.id);
+    this.contactDetail = this.contactService.currentRecord(this._routeParams.snapshot.params.id);
     this.form = new FormGroup({
       firstName: new FormControl(this.contactDetail['firstName'],[Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]*$')]),
       lastName: new FormControl(this.contactDetail['lastName'], [Validators.required, Validators.pattern('^[a-zA-Z]*$')]),

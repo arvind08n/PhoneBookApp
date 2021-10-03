@@ -49,7 +49,7 @@ export class ContactsService {
     return index;
   }
 
-  currentUser(key: number){
+  currentRecord(key: number){
     let records = [];
     let index = 0;
     records = JSON.parse(localStorage.getItem("Records") || "[]");
